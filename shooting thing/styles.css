@@ -5,3 +5,8 @@ canvas {
 * {
     text-align: center;
 }
+
+body {
+    margin: 0, auto;
+    padding: 0;
+}

@@ -1,35 +1,12 @@
-initGraphics(1000, 800);
-let bullet = [];
-let playeroneY = [];
-let playertwoY = [];
-let shoot = true;
-let playerone = {
-    x: 390,
-    y: 500,
-    xs: 4,
-    ys: 0,
-    w: 20,
-    canJump: true,
-    h: 20,
-    a: 0.7
-}
-let playertwo = {
-    y: 500,
-    x: 750,
-    xs: 4,
-    ys: 0,
-    w: 20,
-    canJump: true,
-    h: 20,
-    a: 0.7
-}
+initGraphics(800, 533);
+
 document.addEventListener("keydown", () => {
     // console.log(event.code);
-    if (KeyIsPressed["KeyX"] && shoot) {
-        bullet.push(playerone.x + playerone.w);
-        shoot = false;
+    if (KeyIsPressed["KeyX"] && oneshoot) {
+        bulletone.push(playerone.x);
+        oneshoot = false;
         setTimeout(() => {
-            shoot = true;
+            oneshoot = true;
         }, 100);
         playeroneY.push(playerone.y + 10);
     }
@@ -39,19 +16,17 @@ requestAnimationFrame(main);
 function main() {
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     ctx.fillStyle = "black";
-    for (let i = 0; i < bullet.length; i++) {
+    for (let i = 0; i < bulletone.length; i++) {
         move(i);
-        if (bullet[i] + 20 > cnv.width) {
-            bullet.shift();
+        if (bulletone[i] + 20 > cnv.width) {
+            bulletone.shift();
             playeroneY.shift();
         }
-        ctx.fillRect(bullet[i], playeroneY[i], 20, 3);
+        ctx.fillRect(bulletone[i], playeroneY[i], 20, 3);
     };
-    // console.log(bullet);
-    ctx.fillStyle = "black";
-    ctx.fillRect(playerone.x, playerone.y, 20, 20);
-    ctx.fillStyle = "red";
-    ctx.fillRect(playertwo.x, playertwo.y, 20, 20);
+
+    drawplayer("black", playerone.x, playerone.y);
+    drawplayer("red", playertwo.x, playertwo.y);
     moveplayeronehr();
     moveplayeronevrt();
     moveplayertwohr();
@@ -60,7 +35,7 @@ function main() {
 };
 
 function move(i) {
-    bullet[i] += 10;
+    bulletone[i] += 11;
 };
 
 function moveplayeronehr() {
@@ -114,4 +89,9 @@ function moveplayertwovrt() {
         playertwo.canJump = true;
         playertwo.y = cnv.height - playertwo.h - 2;
     }
+}
+
+function drawplayer(color, thisx, thisy) {
+    ctx.fillStyle = color;
+    ctx.fillRect(thisx, thisy, 20, 20);
 }
