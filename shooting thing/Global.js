@@ -24,3 +24,4 @@ let playertwo = {
     h: 20,
     a: 0.7
 }
+let direction;

@@ -1,14 +1,28 @@
 initGraphics(800, 533);
 
-document.addEventListener("keydown", () => {
+document.addEventListener("keydown", (event) => {
     // console.log(event.code);
-    if (KeyIsPressed["KeyX"] && oneshoot) {
+    if (KeyIsPressed["ShiftRight"] && oneshoot) {
         bulletone.push(playerone.x);
         oneshoot = false;
         setTimeout(() => {
             oneshoot = true;
         }, 100);
         playeroneY.push(playerone.y + 10);
+    }
+    if (KeyIsPressed["Space"] && twoshoot) {
+        bullettwo.push(playertwo.x);
+        twoshoot = false;
+        setTimeout(() => {
+            twoshoot = true;
+        }, 100);
+        playertwoY.push(-(playertwo.y + 10));
+    }
+    if (event.code == "KeyA") {
+        direction = "left";
+    }
+    if (event.code == "KeyD") {
+        direction = "right";
     }
 });
 requestAnimationFrame(main);
@@ -17,14 +31,23 @@ function main() {
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     ctx.fillStyle = "black";
     for (let i = 0; i < bulletone.length; i++) {
-        move(i);
+        ONEmove(i);
         if (bulletone[i] + 20 > cnv.width) {
             bulletone.shift();
             playeroneY.shift();
         }
         ctx.fillRect(bulletone[i], playeroneY[i], 20, 3);
-    };
-
+    }
+    for (let i = 0; i < bullettwo.length; i++) {
+        TWOmove(i);
+        if (bullettwo[i] < -20) {
+            bullettwo.shift();
+            playertwoY.shift();
+            // playerKey.twoleft = false;
+        }
+        ctx.fillStyle = "red";
+        ctx.fillRect(bullettwo[i], playertwoY[i], 20, 3);
+    }
     drawplayer("black", playerone.x, playerone.y);
     drawplayer("red", playertwo.x, playertwo.y);
     moveplayeronehr();
@@ -34,9 +57,17 @@ function main() {
     requestAnimationFrame(main);
 };
 
-function move(i) {
+function ONEmove(i) {
     bulletone[i] += 11;
 };
+function TWOmove(i) {
+    // console.log(bullettwo[i]);
+    if (direction = "left") {
+        bullettwo[i] -= 11;
+    } else if (direction = "right") {
+        bullettwo[i] += 11;
+    }
+}
 
 function moveplayeronehr() {
     if (KeyIsPressed["ArrowRight"]) {
