@@ -1,4 +1,5 @@
 let bulletone = [];
+let bulletoneRight = [];
 let bullettwo = [];
 let playeroneY = [];
 let playertwoY = [];
@@ -24,4 +25,5 @@ let playertwo = {
     h: 20,
     a: 0.7
 }
-let direction;
+let directionOne = "right";
+let directionTwo = "left";

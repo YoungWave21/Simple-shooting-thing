@@ -2,8 +2,8 @@ initGraphics(800, 533);
 
 document.addEventListener("keydown", (event) => {
     // console.log(event.code);
-    if (KeyIsPressed["ShiftRight"] && oneshoot) {
-        bulletone.push(playerone.x);
+    if (KeyIsPressed["KeyX"] && oneshoot) {
+        bulletone.push([playerone.x, directionOne]);
         oneshoot = false;
         setTimeout(() => {
             oneshoot = true;
@@ -11,18 +11,24 @@ document.addEventListener("keydown", (event) => {
         playeroneY.push(playerone.y + 10);
     }
     if (KeyIsPressed["Space"] && twoshoot) {
-        bullettwo.push(playertwo.x);
+        bullettwo.push([playertwo.x, directionTwo]);
         twoshoot = false;
         setTimeout(() => {
             twoshoot = true;
         }, 100);
-        playertwoY.push(-(playertwo.y + 10));
+        playertwoY.push(playertwo.y + 10);
+    }
+    if (event.code == "ArrowLeft") {
+        directionOne = "left"
+    }
+    if (event.code == "ArrowRight") {
+        directionOne = "right";
     }
     if (event.code == "KeyA") {
-        direction = "left";
+        directionTwo = "left"
     }
     if (event.code == "KeyD") {
-        direction = "right";
+        directionTwo = "right";
     }
 });
 requestAnimationFrame(main);
@@ -32,21 +38,18 @@ function main() {
     ctx.fillStyle = "black";
     for (let i = 0; i < bulletone.length; i++) {
         ONEmove(i);
-        if (bulletone[i] + 20 > cnv.width) {
+        if (bulletone.length > 20) {
             bulletone.shift();
-            playeroneY.shift();
         }
-        ctx.fillRect(bulletone[i], playeroneY[i], 20, 3);
+        ctx.fillRect(bulletone[i][0], playeroneY[i], 20, 3);
     }
+    ctx.fillStyle = "red";
     for (let i = 0; i < bullettwo.length; i++) {
         TWOmove(i);
-        if (bullettwo[i] < -20) {
+        if (bullettwo.length > 20) {
             bullettwo.shift();
-            playertwoY.shift();
-            // playerKey.twoleft = false;
         }
-        ctx.fillStyle = "red";
-        ctx.fillRect(bullettwo[i], playertwoY[i], 20, 3);
+        ctx.fillRect(bullettwo[i][0], playertwoY[i], 20, 3);
     }
     drawplayer("black", playerone.x, playerone.y);
     drawplayer("red", playertwo.x, playertwo.y);
@@ -58,14 +61,17 @@ function main() {
 };
 
 function ONEmove(i) {
-    bulletone[i] += 11;
+    if (bulletone[i][1] == "right") {
+        bulletone[i][0] += 11;
+    } else if (bulletone[i][1] == "left") {
+        bulletone[i][0] -= 11;
+    }
 };
 function TWOmove(i) {
-    // console.log(bullettwo[i]);
-    if (direction = "left") {
-        bullettwo[i] -= 11;
-    } else if (direction = "right") {
-        bullettwo[i] += 11;
+    if (bullettwo[i][1] == "right") {
+        bullettwo[i][0] += 11;
+    } else if (bullettwo[i][1] == "left") {
+        bullettwo[i][0] -= 11;
     }
 }
 
