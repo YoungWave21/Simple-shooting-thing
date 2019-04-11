@@ -38,16 +38,19 @@ function main() {
     ctx.fillStyle = "black";
     for (let i = 0; i < bulletone.length; i++) {
         ONEmove(i);
-        if (bulletone.length > 20) {
+        if (bulletone.length > 10) {
             bulletone.shift();
+            playeroneY.shift();
         }
+        console.log(playeroneY);
         ctx.fillRect(bulletone[i][0], playeroneY[i], 20, 3);
     }
     ctx.fillStyle = "red";
     for (let i = 0; i < bullettwo.length; i++) {
         TWOmove(i);
-        if (bullettwo.length > 20) {
+        if (bullettwo.length > 10) {
             bullettwo.shift();
+            playertwoY.shift();
         }
         ctx.fillRect(bullettwo[i][0], playertwoY[i], 20, 3);
     }
