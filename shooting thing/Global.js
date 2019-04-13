@@ -6,8 +6,8 @@ let playertwoY = [];
 let oneshoot = true;
 let twoshoot = true;
 let playerone = {
-    x: 390,
-    y: 500,
+    x: 300,
+    y: 200,
     xs: 4,
     ys: 0,
     w: 20,
@@ -16,8 +16,8 @@ let playerone = {
     a: 0.7
 }
 let playertwo = {
-    y: 500,
-    x: 750,
+    y: 200,
+    x: 510,
     xs: 4,
     ys: 0,
     w: 20,
@@ -28,9 +28,9 @@ let playertwo = {
 let directionOne = "right";
 let directionTwo = "left";
 let platform = {
-    x: 200,
-    y: 400,
-    w: 100,
+    x: 250,
+    y: 350,
+    w: 300,
     h: 20
 }
 let leftedgeof1, rightedgeof2, leftedgeof2, rightedgeof1;
