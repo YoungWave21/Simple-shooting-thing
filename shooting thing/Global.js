@@ -27,3 +27,10 @@ let playertwo = {
 }
 let directionOne = "right";
 let directionTwo = "left";
+let platform = {
+    x: 200,
+    y: 400,
+    w: 100,
+    h: 20
+}
+let leftedgeof1, rightedgeof2, leftedgeof2, rightedgeof1;

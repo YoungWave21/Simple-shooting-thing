@@ -70,7 +70,7 @@ function initGraphics(cnvwidth, cnvheight) {
         let leftedge = rect1.x;
         let rightEdge = rect1.x + rect1.w
         if (leftedge <= rect2.x + rect2.w && leftedge >= rect2.x || rightEdge <= rect2.x + rect2.w && rightEdge >= rect2.x) {
-            if (rect1.y + rect1.h <= rect2.y + rect2.h && rect1.y + rect1.h >= rect2.y - 5) {
+            if (rect1.y + rect1.h < rect2.y + rect2.h && rect1.y + rect1.h > rect2.y - 5) {
                 return rect2, rect1;
             }
         }
