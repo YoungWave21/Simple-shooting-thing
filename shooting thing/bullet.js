@@ -1,4 +1,4 @@
-function bulletloopsone(){
+function bulletloopsone() {
     ctx.fillStyle = "black";
     for (let i = 0; i < bulletone.length; i++) {
         ONEmove(i);
@@ -24,7 +24,7 @@ function bulletloopsone(){
         }
     }
 }
-function bulletloopstwo(){
+function bulletloopstwo() {
     ctx.fillStyle = "red";
     for (let i = 0; i < bullettwo.length; i++) {
         TWOmove(i);

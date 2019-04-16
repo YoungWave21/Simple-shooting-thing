@@ -26,9 +26,9 @@ function moveplayeronevrt() {
     playerone.y += playerone.ys;
     playerone.ys += playerone.a;
     if (KeyIsPressed["ArrowUp"] && playerone.canJump) {
-        playerone.ys = -15;
+        playerone.ys = JUMP;
         playerone.canJump = false;
-        playerone.a = 0.7;
+        playerone.a = ACCELERATION;
     }
     if (playerone.y + playerone.h > cnv.height) {
         playerone.canJump = true;
@@ -37,9 +37,9 @@ function moveplayeronevrt() {
     playertwo.y += playertwo.ys;
     playertwo.ys += playertwo.a;
     if (KeyIsPressed["KeyW"] && playertwo.canJump) {
-        playertwo.ys = -15;
+        playertwo.ys = JUMP;
         playertwo.canJump = false;
-        playertwo.a = 0.7;
+        playertwo.a = ACCELERATION;
     }
     if (playertwo.y + playertwo.h > cnv.height) {
         playertwo.canJump = true;

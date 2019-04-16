@@ -7,7 +7,7 @@ let oneshoot = true;
 let twoshoot = true;
 let playerone = {
     x: 300,
-    y: 200,
+    y: 70,
     xs: 4,
     ys: 0,
     w: 20,
@@ -16,8 +16,8 @@ let playerone = {
     a: 0.7
 }
 let playertwo = {
-    y: 200,
-    x: 510,
+    y: 70,
+    x: 900,
     xs: 4,
     ys: 0,
     w: 20,
@@ -27,10 +27,55 @@ let playertwo = {
 }
 let directionOne = "right";
 let directionTwo = "left";
+//CANVAS size 1200 by 650
+//top one
 let platform = {
-    x: 250,
-    y: 350,
-    w: 300,
+    x: 269,
+    y: 225,
+    w: 664,
+    h: 20
+}
+//second layer left
+let platform1 = {
+    x: 295,
+    y: 305,
+    w: 140,
+    h: 20
+}
+//second layer right
+let platform2 = {
+    x: 758,
+    y: 305,
+    w: 140,
+    h: 20
+}
+//middle long 
+let platform3 = {
+    x: 110,
+    y: 380,
+    w: 1000,
+    h: 20
+}
+//bottom middle plank
+let platform4 = {
+    x: 420,
+    y: 480,
+    w: 360,
+    h: 20
+}
+//lower congruent sides
+let platform5 = {
+    x: 70,
+    y: 570,
+    w: 410,
+    h: 20
+}
+let platform6 = {
+    x: 720,
+    y: 570,
+    w: 435,
     h: 20
 }
 let leftedgeof1, rightedgeof2, leftedgeof2, rightedgeof1;
+const ACCELERATION = 0.5;
+const JUMP = -10;

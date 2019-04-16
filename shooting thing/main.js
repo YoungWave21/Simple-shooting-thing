@@ -1,8 +1,11 @@
-initGraphics(800, 533);
+initGraphics(1200, 650);
+
+let level1 = document.getElementById("levelone");
+let level2 = document.getElementById("leveltwo");
 
 document.addEventListener("keydown", (event) => {
     //console.log(event.code);
-    if (KeyIsPressed["KeyG"] && oneshoot) {
+    if (KeyIsPressed["ShiftRight"] && oneshoot) {
         bulletone.push([playerone.x, directionOne]);
         oneshoot = false;
         setTimeout(() => {
@@ -10,7 +13,7 @@ document.addEventListener("keydown", (event) => {
         }, 100);
         playeroneY.push(playerone.y + 10);
     }
-    if (KeyIsPressed["ShiftRight"] && twoshoot) {
+    if (KeyIsPressed["KeyG"] && twoshoot) {
         bullettwo.push([playertwo.x, directionTwo]);
         twoshoot = false;
         setTimeout(() => {
@@ -35,18 +38,18 @@ requestAnimationFrame(main);
 
 function main() {
     ctx.clearRect(0, 0, cnv.width, cnv.height);
-    ctx.fillStyle = "green";
-    ctx.fillRect(platform.x, platform.y, platform.w, platform.h);
+    ctx.drawImage(level1, -1, -1, cnv.width, cnv.height);
+    drawplatform();
     drawplayer("black", playerone.x, playerone.y);
     drawplayer("red", playertwo.x, playertwo.y);
-    oneplatformcollide(platform);
-    twoplatformcollide(platform)
+    platformcollisions();
     bulletloopsone();
     bulletloopstwo();
     moveplayeronehr();
     moveplayeronevrt();
+    playerdeathconfirmation();
     requestAnimationFrame(main);
 };
+function playerdeathconfirmation() {
 
-
-
+}
