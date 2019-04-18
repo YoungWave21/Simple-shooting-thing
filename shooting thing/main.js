@@ -33,6 +33,18 @@ document.addEventListener("keydown", (event) => {
     if (event.code == "KeyD") {
         directionTwo = "right";
     }
+    if (event.code == "ArrowDown") {
+        playerone.stand = false;
+        setTimeout(() => {
+            playerone.stand = true;
+        }, 200);
+    }
+    if (event.code == "KeyS") {
+        playertwo.stand = false;
+        setTimeout(() => {
+            playertwo.stand = true;
+        }, 200);
+    }
 });
 requestAnimationFrame(main);
 

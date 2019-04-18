@@ -51,3 +51,5 @@ function drawplayer(color, thisx, thisy) {
     ctx.fillStyle = color;
     ctx.fillRect(thisx, thisy, 20, 20);
 }
+
+

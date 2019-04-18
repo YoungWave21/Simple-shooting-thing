@@ -13,7 +13,8 @@ let playerone = {
     w: 20,
     canJump: true,
     h: 20,
-    a: 0.7
+    a: 0.7,
+    stand: true
 }
 let playertwo = {
     y: 70,
@@ -23,7 +24,8 @@ let playertwo = {
     w: 20,
     canJump: true,
     h: 20,
-    a: 0.7
+    a: 0.7,
+    stand: true
 }
 let directionOne = "right";
 let directionTwo = "left";
