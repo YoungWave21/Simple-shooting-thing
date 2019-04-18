@@ -33,7 +33,7 @@ let directionTwo = "left";
 //top one
 let platform = {
     x: 269,
-    y: 225,
+    y: 220,
     w: 664,
     h: 20
 }

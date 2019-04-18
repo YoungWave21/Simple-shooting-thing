@@ -13,7 +13,7 @@ document.addEventListener("keydown", (event) => {
         }, 100);
         playeroneY.push(playerone.y + 10);
     }
-    if (KeyIsPressed["KeyG"] && twoshoot) {
+    if (KeyIsPressed["KeyQ"] && twoshoot) {
         bullettwo.push([playertwo.x, directionTwo]);
         twoshoot = false;
         setTimeout(() => {
@@ -51,7 +51,7 @@ requestAnimationFrame(main);
 function main() {
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     ctx.drawImage(level1, -1, -1, cnv.width, cnv.height);
-    drawplatform();
+    // drawplatform();
     drawplayer("black", playerone.x, playerone.y);
     drawplayer("red", playertwo.x, playertwo.y);
     platformcollisions();

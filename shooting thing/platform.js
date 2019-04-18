@@ -53,5 +53,3 @@ function platformcollisions() {
     oneplatformcollide(platform6);
     twoplatformcollide(platform6);
 }
-
-ctx.fillRect(2)
