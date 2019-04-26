@@ -19,17 +19,52 @@ function main() {
     drawplayer("red", playertwo.x, playertwo.y);
     ctx.fillRect(cnv.width - 40, 20, 20, 20);
     platformcollisions();
-
     bulletloopsone();
     bulletloopstwo();
     moveplayeronehr();
     moveplayeronevrt();
-    playerdeathconfirmation();
     requestAnimationFrame(main);
 };
 
-function playerdeathconfirmation() {
-
+function playerdeathconfirmation1() {
+    death.one += 1;
+    playerone = {
+        x: 300,
+        y: 70,
+        xs: 4,
+        ys: 0,
+        w: 20,
+        canJump: true,
+        h: 20,
+        a: 0.7,
+        stand: true,
+        stand2: true,
+        lives: 5 - death.one
+    }
+    if (playerone.lives == 0) {
+        alert("red win");
+        document.getElementById("body").load;
+    }
+}
+function playerdeathconfirmation2() {
+    death.two += 1;
+    playertwo = {
+        y: 70,
+        x: 900,
+        xs: 4,
+        ys: 0,
+        w: 20,
+        canJump: true,
+        h: 20,
+        a: 0.7,
+        stand: true,
+        stand2: true,
+        lives: 5 - death.two
+    }
+    if (playertwo.lives <= 0) {
+        alert("white win");
+        document.getElementById("body").load;
+    }
 }
 
 document.addEventListener("keydown", (event) => {

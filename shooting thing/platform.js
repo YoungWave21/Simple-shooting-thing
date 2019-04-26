@@ -2,7 +2,7 @@ function oneplatformcollide(aPlatform) {
     leftedgeof1 = playerone.x;
     rightedgeof1 = playerone.x + playerone.w;
     if (leftedgeof1 <= aPlatform.x + aPlatform.w && leftedgeof1 >= aPlatform.x && rightedgeof1 <= aPlatform.x + aPlatform.w && rightedgeof1 >= aPlatform.x) {
-        if (playerone.y + playerone.h >= aPlatform.y && playerone.y + playerone.h <= aPlatform.y + 15 && playerone.ys > 0 && playerone.stand) {
+        if (playerone.y + playerone.h >= aPlatform.y && playerone.y + playerone.h <= aPlatform.y + 17 && playerone.ys > 0 && playerone.stand) {
             playerone.y = aPlatform.y - 20;
             playerone.canJump = true;
             playerone.ys = 0;
@@ -17,7 +17,7 @@ function twoplatformcollide(aplatform) {
     leftedgeof2 = playertwo.x;
     rightedgeof2 = playertwo.x + playertwo.w;
     if (leftedgeof2 <= aplatform.x + aplatform.w && leftedgeof2 >= aplatform.x && rightedgeof2 <= aplatform.x + aplatform.w && rightedgeof2 >= aplatform.x) {
-        if (playertwo.y + playertwo.h >= aplatform.y && playertwo.y + playertwo.h <= aplatform.y + 15 && playertwo.ys > 0 && playertwo.stand) {
+        if (playertwo.y + playertwo.h >= aplatform.y && playertwo.y + playertwo.h <= aplatform.y + 17 && playertwo.ys > 0 && playertwo.stand) {
             playertwo.y = aplatform.y - 20;
             playertwo.canJump = true;
             playertwo.ys = 0;

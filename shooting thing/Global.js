@@ -18,6 +18,10 @@ let playerone = {
     stand2: true,
     lives: 5
 }
+let death = {
+    one: 0,
+    two: 0
+}
 let playertwo = {
     y: 70,
     x: 900,

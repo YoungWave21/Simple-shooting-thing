@@ -11,11 +11,11 @@ function bulletloopsone() {
             if (playeroneY[i] >= playertwo.y && playeroneY[i] <= playertwo.y + 20) {
                 if (bulletone[i][1] == "right") {
                     for (let z = 0; z < 10; z++) {
-                        playertwo.x += playertwo.xs;
+                        playertwo.x += playertwo.xs + 10;
                     }
                 } else if (bulletone[i][1] == "left") {
                     for (let z = 0; z < 10; z++) {
-                        playertwo.x -= playertwo.xs;
+                        playertwo.x -= playertwo.xs + 10;
                     }
                 }
                 bulletone.shift();
@@ -37,11 +37,11 @@ function bulletloopstwo() {
             if (playertwoY[i] >= playerone.y && playertwoY[i] <= playerone.y + 20) {
                 if (bullettwo[i][1] == "right") {
                     for (let z = 0; z < 10; z++) {
-                        playerone.x += playerone.xs;
+                        playerone.x += playerone.xs + 15;
                     }
                 } else if (bullettwo[i][1] == "left") {
                     for (let z = 0; z < 10; z++) {
-                        playerone.x -= playerone.xs;
+                        playerone.x -= playerone.xs + 15;
                     }
                 }
                 bullettwo.shift();
@@ -52,15 +52,15 @@ function bulletloopstwo() {
 }
 function ONEmove(i) {
     if (bulletone[i][1] == "right") {
-        bulletone[i][0] += 11;
+        bulletone[i][0] += 15;
     } else if (bulletone[i][1] == "left") {
-        bulletone[i][0] -= 11;
+        bulletone[i][0] -= 15;
     }
 };
 function TWOmove(i) {
     if (bullettwo[i][1] == "right") {
-        bullettwo[i][0] += 11;
+        bullettwo[i][0] += 15;
     } else if (bullettwo[i][1] == "left") {
-        bullettwo[i][0] -= 11;
+        bullettwo[i][0] -= 15;
     }
 }
