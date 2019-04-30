@@ -1,5 +1,5 @@
 let bulletone = [];
-let bulletoneRight = [];
+// let bulletoneRight = [];
 let bullettwo = [];
 let playeroneY = [];
 let playertwoY = [];
@@ -89,3 +89,4 @@ let platform6 = {
 let leftedgeof1, rightedgeof2, leftedgeof2, rightedgeof1;
 const ACCELERATION = 0.5;
 const JUMP = -10;
+let level = "level1";

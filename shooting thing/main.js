@@ -5,10 +5,13 @@ let level2 = document.getElementById("leveltwo");
 let heart = document.getElementById("heart");
 ctx.font = "30px Arial";
 requestAnimationFrame(main);
-
 function main() {
     ctx.clearRect(0, 0, cnv.width, cnv.height);
-    ctx.drawImage(level1, -1, -1, cnv.width, cnv.height);
+    if (level == "level1") {
+        ctx.drawImage(level1, -1, -1, cnv.width, cnv.height);
+    } else {
+        ctx.drawImage(level2, -1, -1, cnv.width, cnv.height);
+    }
     // drawplatform();
     drawplayer("white", playerone.x, playerone.y);
     ctx.fillRect(20, 20, 20, 20);
@@ -41,9 +44,9 @@ function playerdeathconfirmation1() {
         stand2: true,
         lives: 5 - death.one
     }
-    if (playerone.lives == 0) {
+    if (playerone.lives <= 0) {
         alert("red win");
-        document.getElementById("body").load;
+        level2isinplay();
     }
 }
 function playerdeathconfirmation2() {
@@ -63,7 +66,7 @@ function playerdeathconfirmation2() {
     }
     if (playertwo.lives <= 0) {
         alert("white win");
-        document.getElementById("body").load;
+        level2isinplay();
     }
 }
 
