@@ -45,9 +45,18 @@ function playerdeathconfirmation1() {
         lives: 5 - death.one
     }
     if (playerone.lives <= 0) {
-        alert("red win");
-        level2isinplay();
+        gamefreeze1();
     }
+}
+function gamefreeze1() {
+    freeze = true;
+    alert("red win");
+    level2isinplay();
+}
+function gamefreeze2() {
+    freeze = true;
+    alert("white win");
+    level2isinplay();
 }
 function playerdeathconfirmation2() {
     death.two += 1;
@@ -65,8 +74,10 @@ function playerdeathconfirmation2() {
         lives: 5 - death.two
     }
     if (playertwo.lives <= 0) {
-        alert("white win");
-        level2isinplay();
+        gamefreeze2();
+    }
+    if (playertwo.lives <= 0 && level == "level2") {
+        // window
     }
 }
 

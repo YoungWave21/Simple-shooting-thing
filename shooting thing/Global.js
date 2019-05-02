@@ -90,3 +90,4 @@ let leftedgeof1, rightedgeof2, leftedgeof2, rightedgeof1;
 const ACCELERATION = 0.5;
 const JUMP = -10;
 let level = "level1";
+let freeze = false;

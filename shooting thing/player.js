@@ -1,34 +1,34 @@
 function moveplayeronehr() {
-    if (KeyIsPressed["KeyD"]) {
+    if (KeyIsPressed["KeyD"] && freeze == false) {
         playertwo.x += playertwo.xs;
-    } else if (KeyIsPressed["KeyA"]) {
+    } else if (KeyIsPressed["KeyA"] && freeze == false) {
         playertwo.x -= playertwo.xs;
     }
-    if (KeyIsPressed["ArrowRight"]) {
+    if (KeyIsPressed["ArrowRight"] && freeze == false) {
         playerone.x += playerone.xs;
-    } else if (KeyIsPressed["ArrowLeft"]) {
+    } else if (KeyIsPressed["ArrowLeft"] && freeze == false) {
         playerone.x -= playerone.xs;
     }
 }
 function moveplayeronevrt() {
     playerone.y += playerone.ys;
     playerone.ys += playerone.a;
-    if (KeyIsPressed["ArrowUp"] && playerone.canJump) {
+    if (KeyIsPressed["ArrowUp"] && playerone.canJump && freeze == false) {
         playerone.ys = JUMP;
         playerone.canJump = false;
         playerone.a = ACCELERATION;
     }
-    if (playerone.y + playerone.h > cnv.height) {
+    if (playerone.y + playerone.h > cnv.height && freeze == false) {
         playerdeathconfirmation1();
     }
     playertwo.y += playertwo.ys;
     playertwo.ys += playertwo.a;
-    if (KeyIsPressed["KeyW"] && playertwo.canJump) {
+    if (KeyIsPressed["KeyW"] && playertwo.canJump && freeze == false) {
         playertwo.ys = JUMP;
         playertwo.canJump = false;
         playertwo.a = ACCELERATION;
     }
-    if (playertwo.y + playertwo.h > cnv.height) {
+    if (playertwo.y + playertwo.h > cnv.height && freeze == false) {
         playerdeathconfirmation2();
     }
 }

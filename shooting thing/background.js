@@ -1,4 +1,8 @@
 function level2isinplay() {
+    settingfalse();
+    // setInterval(() => {
+    freeze = false;
+    // }, 2000);
     level = "level2";
     playerone = {
         x: 300,
@@ -77,4 +81,17 @@ function level2isinplay() {
         w: 965,
         h: 20
     }
+}
+function settingfalse() {
+    KeyIsPressed["KeyD"] = false;
+    KeyIsPressed["KeyA"] = false;
+    KeyIsPressed["KeyQ"] = false;
+    KeyIsPressed["KeyW"] = false;
+    KeyIsPressed["KeyS"] = false;
+    KeyIsPressed["ArrowLeft"] = false;
+    KeyIsPressed["ArrowRight"] = false;
+    KeyIsPressed["ArrowUp"] = false;
+    KeyIsPressed["ArrowDown"] = false;
+    KeyIsPressed["ShiftRight"] = false;
+    KeyIsPressed["ArrowLeft"] = false;
 }
