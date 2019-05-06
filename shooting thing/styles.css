@@ -9,6 +9,7 @@ canvas {
 body {
     margin: 0, auto;
     padding: 0;
+    background-color: #00ffff;
 }
 img{
     display: none;

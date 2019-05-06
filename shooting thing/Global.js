@@ -35,6 +35,11 @@ let playertwo = {
     stand2: true,
     lives: 5
 }
+let TieBraker = "";
+let point = {
+    one: 0,
+    two: 0
+}
 let directionOne = "right";
 let directionTwo = "left";
 //CANVAS size 1200 by 650

@@ -16,7 +16,9 @@ function main() {
     drawplayer("white", playerone.x, playerone.y);
     ctx.fillRect(20, 20, 20, 20);
     ctx.drawImage(heart, 80, 20, 20, 20);
+    ctx.fillText(TieBraker, 500, 100)
     ctx.drawImage(heart, cnv.width - 65, 20, 20, 20);
+    ctx.fillText(point.one + ":" + point.two, 550, 40)
     ctx.fillText(playertwo.lives, cnv.width - 85, 40);
     ctx.fillText(playerone.lives, 60, 40);
     drawplayer("red", playertwo.x, playertwo.y);
@@ -27,6 +29,17 @@ function main() {
     moveplayeronehr();
     moveplayeronevrt();
     requestAnimationFrame(main);
+    if (point.one == 1 && point.two == 1) {
+        TieBraker = "Tie-Breaker";
+    }
+    if (point.one == 2) {
+        alert("Game over, White Wins!");
+        document.location.reload()
+    }
+    if (point.two == 2) {
+        alert("Game over, Red Wins!");
+        document.location.reload()
+    }
 };
 
 function playerdeathconfirmation1() {
@@ -50,13 +63,15 @@ function playerdeathconfirmation1() {
 }
 function gamefreeze1() {
     freeze = true;
-    alert("red win");
+    alert("Red Point");
     level2isinplay();
+    point.two++;
 }
 function gamefreeze2() {
     freeze = true;
-    alert("white win");
+    alert("White Point");
     level2isinplay();
+    point.one++;
 }
 function playerdeathconfirmation2() {
     death.two += 1;
@@ -75,9 +90,6 @@ function playerdeathconfirmation2() {
     }
     if (playertwo.lives <= 0) {
         gamefreeze2();
-    }
-    if (playertwo.lives <= 0 && level == "level2") {
-        // window
     }
 }
 
