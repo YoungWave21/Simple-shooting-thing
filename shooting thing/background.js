@@ -19,7 +19,7 @@ function level2isinplay() {
     }
     death = {
         one: 0,
-        two: 0
+        two: 0,
     }
     playertwo = {
         y: 70,
@@ -93,5 +93,4 @@ function settingfalse() {
     KeyIsPressed["ArrowUp"] = false;
     KeyIsPressed["ArrowDown"] = false;
     KeyIsPressed["ShiftRight"] = false;
-    KeyIsPressed["ArrowLeft"] = false;
 }

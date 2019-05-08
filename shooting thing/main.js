@@ -4,6 +4,13 @@ let level1 = document.getElementById("levelone");
 let level2 = document.getElementById("leveltwo");
 let heart = document.getElementById("heart");
 ctx.font = "30px Arial";
+audio.play();
+function playaudio() {
+    audio.play();
+}
+function pauseaudio() {
+    audio.pause();
+}
 requestAnimationFrame(main);
 function main() {
     ctx.clearRect(0, 0, cnv.width, cnv.height);
@@ -96,6 +103,8 @@ function playerdeathconfirmation2() {
 document.addEventListener("keydown", (event) => {
     //console.log(event.code);
     if (KeyIsPressed["ShiftRight"] && oneshoot) {
+        bulletsound = new Audio("audio/Bullet shot.mp3");
+        bulletsound.play();
         bulletone.push([playerone.x, directionOne]);
         oneshoot = false;
         setTimeout(() => {
@@ -104,6 +113,8 @@ document.addEventListener("keydown", (event) => {
         playeroneY.push(playerone.y + 10);
     }
     if (KeyIsPressed["KeyQ"] && twoshoot) {
+        bulletsound = new Audio("audio/Bullet shot.mp3");
+        bulletsound.play();
         bullettwo.push([playertwo.x, directionTwo]);
         twoshoot = false;
         setTimeout(() => {

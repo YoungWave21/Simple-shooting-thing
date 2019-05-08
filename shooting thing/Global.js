@@ -96,3 +96,5 @@ const ACCELERATION = 0.5;
 const JUMP = -10;
 let level = "level1";
 let freeze = false;
+let audio = new Audio("audio/BackgroundMusic.mp3");
+let bulletsound = new Audio("audio/Bullet shot.mp3");

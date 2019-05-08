@@ -12,14 +12,17 @@ function bulletloopsone() {
                 if (bulletone[i][1] == "right") {
                     for (let z = 0; z < 10; z++) {
                         playertwo.x += playertwo.xs + 10;
+                        bulletone.shift();
+                        playeroneY.shift();
                     }
                 } else if (bulletone[i][1] == "left") {
                     for (let z = 0; z < 10; z++) {
                         playertwo.x -= playertwo.xs + 10;
+                        bulletone.shift();
+                        playeroneY.shift();
                     }
                 }
-                bulletone.shift();
-                playeroneY.shift();
+
             }
         }
     }
