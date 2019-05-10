@@ -10,19 +10,22 @@ function bulletloopsone() {
         if (bulletone[i][0] >= playertwo.x && bulletone[i][0] <= playertwo.x + 20) {
             if (playeroneY[i] >= playertwo.y && playeroneY[i] <= playertwo.y + 20) {
                 if (bulletone[i][1] == "right") {
-                    for (let z = 0; z < 10; z++) {
-                        playertwo.x += playertwo.xs + 10;
-                        bulletone.shift();
-                        playeroneY.shift();
-                    }
+                    bulletone.shift();
+                    playeroneY.shift();
+                    playertwo.isShot = true;
+                    playertwo.direction = "right";
+                    setTimeout(() => {
+                        playertwo.isShot = false;
+                    }, 80);
                 } else if (bulletone[i][1] == "left") {
-                    for (let z = 0; z < 10; z++) {
-                        playertwo.x -= playertwo.xs + 10;
-                        bulletone.shift();
-                        playeroneY.shift();
-                    }
+                    bulletone.shift();
+                    playeroneY.shift();
+                    playertwo.isShot = true;
+                    playertwo.direction = "left";
+                    setTimeout(() => {
+                        playertwo.isShot = false;
+                    }, 80);
                 }
-
             }
         }
     }
@@ -39,16 +42,26 @@ function bulletloopstwo() {
         if (bullettwo[i][0] >= playerone.x && bullettwo[i][0] <= playerone.x + 20) {
             if (playertwoY[i] >= playerone.y && playertwoY[i] <= playerone.y + 20) {
                 if (bullettwo[i][1] == "right") {
-                    for (let z = 0; z < 10; z++) {
-                        playerone.x += playerone.xs + 15;
-                    }
+                    bullettwo.shift();
+                    playertwoY.shift();
+                    playerone.isShot = true;
+                    playerone.direction = "right";
+                    setTimeout(() => {
+                        playerone.isShot = false;
+                    }, 80);
+
                 } else if (bullettwo[i][1] == "left") {
-                    for (let z = 0; z < 10; z++) {
-                        playerone.x -= playerone.xs + 15;
-                    }
+                    // for (let z = 0; z < 10; z++) {
+                    //     playerone.x -= playerone.xs + 15;
+                    // }
+                    bullettwo.shift();
+                    playertwoY.shift();
+                    playerone.isShot = true;
+                    playerone.direction = "left";
+                    setTimeout(() => {
+                        playerone.isShot = false;
+                    }, 80);
                 }
-                bullettwo.shift();
-                playertwoY.shift();
             }
         }
     }

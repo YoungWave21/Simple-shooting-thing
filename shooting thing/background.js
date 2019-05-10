@@ -15,7 +15,7 @@ function level2isinplay() {
         a: 0.7,
         stand: true,
         stand2: true,
-        lives: 5
+        lives: 5,
     }
     death = {
         one: 0,

@@ -16,7 +16,9 @@ let playerone = {
     a: 0.7,
     stand: true,
     stand2: true,
-    lives: 5
+    lives: 5,
+    isShot: false,
+    direction: "left",
 }
 let death = {
     one: 0,
@@ -33,7 +35,9 @@ let playertwo = {
     a: 0.7,
     stand: true,
     stand2: true,
-    lives: 5
+    lives: 5,
+    isShot: false,
+    direction: "right",
 }
 let TieBraker = "";
 let point = {

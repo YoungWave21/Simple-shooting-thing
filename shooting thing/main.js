@@ -35,7 +35,12 @@ function main() {
     bulletloopstwo();
     moveplayeronehr();
     moveplayeronevrt();
-    requestAnimationFrame(main);
+    if (playerone.isShot) {
+        shotmove1();
+    }
+    if (playertwo.isShot) {
+        shotmove2();
+    }
     if (point.one == 1 && point.two == 1) {
         TieBraker = "Tie-Breaker";
     }
@@ -47,6 +52,7 @@ function main() {
         alert("Game over, Red Wins!");
         document.location.reload()
     }
+    requestAnimationFrame(main);
 };
 
 function playerdeathconfirmation1() {
@@ -68,6 +74,22 @@ function playerdeathconfirmation1() {
         gamefreeze1();
     }
 }
+
+function shotmove1() {
+    if (playerone.direction == "left") {
+        playerone.x -= 30;
+    } else if (playerone.direction == "right") {
+        playerone.x += 30;
+    }
+}
+function shotmove2() {
+    if (playertwo.direction == "left") {
+        playertwo.x -= 30;
+    } else if (playertwo.direction == "right") {
+        playertwo.x += 30;
+    }
+}
+
 function gamefreeze1() {
     freeze = true;
     alert("Red Point");
