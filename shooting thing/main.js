@@ -11,7 +11,9 @@ function playaudio() {
 function pauseaudio() {
     audio.pause();
 }
+let night = 44;
 requestAnimationFrame(main);
+requestAnimationFrame(currentframe);
 function main() {
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     if (level == "level1") {
@@ -20,7 +22,7 @@ function main() {
         ctx.drawImage(level2, -1, -1, cnv.width, cnv.height);
     }
     // drawplatform();
-    drawplayer("white", playerone.x, playerone.y);
+    // drawplayer("white", playerone.x, playerone.y);
     ctx.fillRect(20, 20, 20, 20);
     ctx.drawImage(heart, 80, 20, 20, 20);
     ctx.fillText(TieBraker, 500, 100)
@@ -35,6 +37,8 @@ function main() {
     bulletloopstwo();
     moveplayeronehr();
     moveplayeronevrt();
+
+    ctx.drawImage(red, night, 116, 47, 58, playerone.x, playerone.y - 30, 50, 50);
     if (playerone.isShot) {
         shotmove1();
     }
@@ -54,6 +58,18 @@ function main() {
     }
     requestAnimationFrame(main);
 };
+
+function currentframe() {
+    setInterval(() => {
+        if (night >= 179) {
+            night = 44;
+        } else {
+        night += 47;
+        }
+    }, 200)
+
+    // requestAnimationFrame(currentframe);
+}
 
 function playerdeathconfirmation1() {
     death.one += 1;
@@ -122,6 +138,8 @@ function playerdeathconfirmation2() {
     }
 }
 
+
+
 document.addEventListener("keydown", (event) => {
     //console.log(event.code);
     if (KeyIsPressed["ShiftRight"] && oneshoot) {
@@ -132,7 +150,7 @@ document.addEventListener("keydown", (event) => {
         setTimeout(() => {
             oneshoot = true;
         }, 100);
-        playeroneY.push(playerone.y + 10);
+        playeroneY.push(playerone.y);
     }
     if (KeyIsPressed["KeyQ"] && twoshoot) {
         bulletsound = new Audio("audio/Bullet shot.mp3");
@@ -142,7 +160,7 @@ document.addEventListener("keydown", (event) => {
         setTimeout(() => {
             twoshoot = true;
         }, 100);
-        playertwoY.push(playertwo.y + 10);
+        playertwoY.push(playertwo.y);
     }
     if (event.code == "ArrowLeft") {
         directionOne = "left"
