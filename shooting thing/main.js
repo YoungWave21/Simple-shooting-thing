@@ -11,9 +11,7 @@ function playaudio() {
 function pauseaudio() {
     audio.pause();
 }
-let night = 44;
 requestAnimationFrame(main);
-requestAnimationFrame(currentframe);
 function main() {
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     if (level == "level1") {
@@ -23,6 +21,7 @@ function main() {
     }
     // drawplatform();
     // drawplayer("white", playerone.x, playerone.y);
+    ctx.fillStyle = "white";
     ctx.fillRect(20, 20, 20, 20);
     ctx.drawImage(heart, 80, 20, 20, 20);
     ctx.fillText(TieBraker, 500, 100)
@@ -38,7 +37,8 @@ function main() {
     moveplayeronehr();
     moveplayeronevrt();
 
-    ctx.drawImage(red, night, 116, 47, 58, playerone.x, playerone.y - 30, 50, 50);
+    // ctx.drawImage(red, night, 116, 47, 58, playerone.x, playerone.y - 30, 50, 50);
+    ctx.drawImage(leftDude, srcx, srcy, playerimagewidth, playerimageheight, playerone.x - 10, playerone.y - 33, 50, 65);
     if (playerone.isShot) {
         shotmove1();
     }
@@ -58,18 +58,6 @@ function main() {
     }
     requestAnimationFrame(main);
 };
-
-function currentframe() {
-    setInterval(() => {
-        if (night >= 179) {
-            night = 44;
-        } else {
-        night += 47;
-        }
-    }, 200)
-
-    // requestAnimationFrame(currentframe);
-}
 
 function playerdeathconfirmation1() {
     death.one += 1;

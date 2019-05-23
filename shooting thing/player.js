@@ -5,9 +5,22 @@ function moveplayeronehr() {
         playertwo.x -= playertwo.xs;
     }
     if (KeyIsPressed["ArrowRight"] && freeze == false) {
+        framecount++;
         playerone.x += playerone.xs;
+        // updateframe();
+        if (framecount % 5 == 0) {
+            currentframe = ++currentframe % cols;
+            srcx = currentframe * playerimagewidth;
+            srcy = 0;
+        }
     } else if (KeyIsPressed["ArrowLeft"] && freeze == false) {
+        framecount++;
         playerone.x -= playerone.xs;
+        if (framecount % 5 == 0) {
+            currentframe = ++currentframe % cols;
+            srcx = currentframe * playerimagewidth;
+            srcy = sheetheight / 2;
+        }
     }
 }
 function moveplayeronevrt() {
