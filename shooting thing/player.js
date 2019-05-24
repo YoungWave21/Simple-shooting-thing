@@ -1,25 +1,39 @@
 function moveplayeronehr() {
     if (KeyIsPressed["KeyD"] && freeze == false) {
+        rightDude = document.getElementById("Right");
+        framecount2++;
         playertwo.x += playertwo.xs;
+        if (framecount2 % 7 == 0) {
+            currentframe2 = ++currentframe2 % cols2;
+            srcx2 = currentframe2 * playerimagewidth2;
+            srcy2 = 0;
+        }
     } else if (KeyIsPressed["KeyA"] && freeze == false) {
+        framecount2++;
+        rightDude = document.getElementById("runningleft");
         playertwo.x -= playertwo.xs;
+        if (framecount2 % 7 == 0) {
+            currentframe2 = ++currentframe2 % cols2;
+            srcx2 = currentframe2 * playerimagewidth2;
+            srcy2 = 0;
+        }
     }
     if (KeyIsPressed["ArrowRight"] && freeze == false) {
-        framecount++;
+        framecount1++;
         playerone.x += playerone.xs;
         // updateframe();
-        if (framecount % 5 == 0) {
-            currentframe = ++currentframe % cols;
-            srcx = currentframe * playerimagewidth;
-            srcy = 0;
+        if (framecount1 % 5 == 0) {
+            currentframe1 = ++currentframe1 % cols1;
+            srcx1 = currentframe1 * playerimagewidth1;
+            srcy1 = 0;
         }
     } else if (KeyIsPressed["ArrowLeft"] && freeze == false) {
-        framecount++;
+        framecount1++;
         playerone.x -= playerone.xs;
-        if (framecount % 5 == 0) {
-            currentframe = ++currentframe % cols;
-            srcx = currentframe * playerimagewidth;
-            srcy = sheetheight / 2;
+        if (framecount1 % 5 == 0) {
+            currentframe1 = ++currentframe1 % cols1;
+            srcx1 = currentframe1 * playerimagewidth1;
+            srcy1 = sheetheight1 / 2;
         }
     }
 }

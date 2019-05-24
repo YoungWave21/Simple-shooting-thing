@@ -29,16 +29,16 @@ function main() {
     ctx.fillText(point.one + ":" + point.two, 550, 40)
     ctx.fillText(playertwo.lives, cnv.width - 85, 40);
     ctx.fillText(playerone.lives, 60, 40);
-    drawplayer("red", playertwo.x, playertwo.y);
+    // drawplayer("red", playertwo.x, playertwo.y);
+    ctx.fillStyle = "red";
     ctx.fillRect(cnv.width - 40, 20, 20, 20);
     platformcollisions();
     bulletloopsone();
     bulletloopstwo();
     moveplayeronehr();
     moveplayeronevrt();
-
-    // ctx.drawImage(red, night, 116, 47, 58, playerone.x, playerone.y - 30, 50, 50);
-    ctx.drawImage(leftDude, srcx, srcy, playerimagewidth, playerimageheight, playerone.x - 10, playerone.y - 33, 50, 65);
+    ctx.drawImage(rightDude, srcx2, srcy2, playerimagewidth2, playerimageheight2, playertwo.x - 10, playertwo.y - 37, 60, 60);
+    ctx.drawImage(leftDude, srcx1, srcy1, playerimagewidth1, playerimageheight1, playerone.x - 10, playerone.y - 35, 50, 65);
     if (playerone.isShot) {
         shotmove1();
     }
@@ -125,8 +125,6 @@ function playerdeathconfirmation2() {
         gamefreeze2();
     }
 }
-
-
 
 document.addEventListener("keydown", (event) => {
     //console.log(event.code);
