@@ -1,8 +1,10 @@
 initGraphics(1200, 650);
 
-let level1 = document.getElementById("levelone");
-let level2 = document.getElementById("leveltwo");
-let heart = document.getElementById("heart");
+ctx.fillStyle = "black";
+ctx.fillRect(0, 0, cnv.width, cnv.height);
+ctx.drawImage(startbutton, cnv.width / 2 - 150, cnv.height / 2 - 150, 300, 120);
+ctx.drawImage(instructions, cnv.width / 2 - 100, cnv.height / 2, 200, 80);
+
 ctx.font = "30px Arial";
 audio.play();
 function playaudio() {
@@ -11,7 +13,7 @@ function playaudio() {
 function pauseaudio() {
     audio.pause();
 }
-requestAnimationFrame(main);
+
 function main() {
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     if (level == "level1") {
@@ -37,7 +39,7 @@ function main() {
     bulletloopstwo();
     moveplayeronehr();
     moveplayeronevrt();
-    ctx.drawImage(rightDude, srcx2, srcy2, playerimagewidth2, playerimageheight2, playertwo.x - 10, playertwo.y - 37, 60, 60);
+    ctx.drawImage(rightDude, srcx2, srcy2, playerimagewidth2, playerimageheight2, playertwo.x - 15, playertwo.y - 37, 60, 60);
     ctx.drawImage(leftDude, srcx1, srcy1, playerimagewidth1, playerimageheight1, playerone.x - 10, playerone.y - 35, 50, 65);
     if (playerone.isShot) {
         shotmove1();
@@ -72,7 +74,9 @@ function playerdeathconfirmation1() {
         a: 0.7,
         stand: true,
         stand2: true,
-        lives: 5 - death.one
+        lives: 3 - death.one,
+        isShot: false,
+        direction: "left",
     }
     if (playerone.lives <= 0) {
         gamefreeze1();
@@ -119,7 +123,9 @@ function playerdeathconfirmation2() {
         a: 0.7,
         stand: true,
         stand2: true,
-        lives: 5 - death.two
+        lives: 3 - death.two,
+        isShot: false,
+        direction: "right",
     }
     if (playertwo.lives <= 0) {
         gamefreeze2();
@@ -175,5 +181,21 @@ document.addEventListener("keydown", (event) => {
             playertwo.stand = true;
             playertwo.stand2 = true;
         }, 200);
+    }
+});
+
+doc.addEventListener("click", (event) => {
+    let x = event.pageX - docLeft;
+    let y = event.pageY - docTop;
+    console.log(x, y);
+    if (x > cnv.width / 8 && x < cnv.width / 3) {
+        if (y > cnv.height / 3.714285714285714 && y < cnv.height / 2.16) {
+            requestAnimationFrame(main);
+        }
+    }
+    if (x > cnv.width / 7.5 & x < cnv.width / 3.33) {
+        if (y > cnv.height / 2 && y < cnv.height / 1.625) {
+            alert("hi");
+        }
     }
 });

@@ -16,6 +16,8 @@ function level2isinplay() {
         stand: true,
         stand2: true,
         lives: 5,
+        isShot: false,
+        direction: "left",
     }
     death = {
         one: 0,
@@ -32,7 +34,9 @@ function level2isinplay() {
         a: 0.7,
         stand: true,
         stand2: true,
-        lives: 5
+        lives: 5,
+        isShot: false,
+        direction: "right",
     }
     platform = {
         x: 120,

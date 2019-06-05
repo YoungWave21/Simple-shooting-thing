@@ -1,5 +1,5 @@
 function bulletloopsone() {
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     for (let i = 0; i < bulletone.length; i++) {
         ONEmove(i);
         if (bulletone.length > 10) {
@@ -51,9 +51,6 @@ function bulletloopstwo() {
                     }, 80);
 
                 } else if (bullettwo[i][1] == "left") {
-                    // for (let z = 0; z < 10; z++) {
-                    //     playerone.x -= playerone.xs + 15;
-                    // }
                     bullettwo.shift();
                     playertwoY.shift();
                     playerone.isShot = true;
